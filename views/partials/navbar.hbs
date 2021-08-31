@@ -1,0 +1,32 @@
+<style>
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+</style>
+
+<nav class="navbar navbar-light navbar-expand-lg bg-white text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Lilia<span class="dot">Shop.uz</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <box-icon name='menu'></box-icon>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link py-2" href="/">Bosh sahifa</a></li>
+                <li class="nav-item"><a class="nav-link py-2" href="#products">Mahsulotlar</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle py-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >Kategoriya
+                        <i class="bx bx-down-arrow"></i>
+                    </a>
+                    {{#if categories}}
+                    <div class="dropdown-menu mx-auto" aria-labelledby="navbarDropdown">
+                        {{#each categories}}
+                            <a class="dropdown-item mb-3" href="/products?category={{categorySlugUrl}}">{{categoryTitle}}</a>
+                        {{/each}}
+                    </div>
+                    {{/if}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

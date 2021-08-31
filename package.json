@@ -1,0 +1,37 @@
+{
+  "name": "flower_ecommerse",
+  "version": "1.0.0",
+  "description": "flowers ecommerse web Site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "ecommerce"
+  ],
+  "author": "G`olib Narzullayev <gnarzullayev2000@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongodb-session": "^3.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^5.3.3",
+    "express-handlebars-paginate": "^1.0.3",
+    "express-session": "^1.17.2",
+    "flash": "^1.1.0",
+    "handlebars": "^4.7.7",
+    "handlebars-paginate": "^0.1.0",
+    "locus": "^2.0.4",
+    "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

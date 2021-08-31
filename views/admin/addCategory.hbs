@@ -1,0 +1,89 @@
+<style>
+   .card-header, .card-body {
+      border: none !important;
+      border: 1px solid #e3e3e3 !important;
+   }
+   select {
+      border: none !important;
+      border: 2px solid #e3e3e3 !important;
+      background: transparent !important;
+      border-radius: 5px !important;
+   }
+</style>
+<div class="container-scroller">
+    {{> dashboardNavbar}}
+
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+      <div class="main-panel">
+         <div class="container">
+            <div class="card p-3 m-3">
+               <div class="card-header bg-white">
+                  <h3 class="text-center">Kategoriya qo'shish</h3>
+               </div>
+               <div class="card-body mt-3">
+                  <form action="/admin/category" method="POST">
+                     <div class="col-12">
+                        <label for="categoryTitle" class="form-label">Kategoriya nomi</label>
+                        <div class="input-group">
+                           <input type="text" class="form-control" id="categoryTitle" name="categoryTitle" required>
+                        </div>
+                     </div>
+                     <button class="btn btn-primary mt-3 ml-3 text-white" type="submit">
+                        Kategoriya qo`shish
+                     </button>
+                  </form>
+               </div>
+            </div>
+            <div class="card p-3 m-3">
+               <div class="card-header bg-white">
+                  <h3 class="text-center">Kategoriyalar</h3>
+               </div>
+               <div class="card-body mt-3">
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="table-reponsive">
+                           {{#if categories}}
+                              <table id="example" class="display expandable-table table-hover text-center" style="width:100%">
+                                 <thead>
+                                    <tr>
+                                       <th>Nomi</th>
+                                       <th>Tahrirlash</th>
+                                       <th>O'chirish</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {{#each categories}}
+                                       <tr>
+                                          <td>{{categoryTitle}}</td>
+                                          <td>
+                                             <a href="/admin/edit?category={{categorySlugUrl}}" class="btn btn-warning">
+                                                <i class="bx bx-pencil text-white"></i>
+                                             </a>
+                                          </td>
+                                          <td>
+                                             <form action="/admin/category/delete/{{_id}}" method="POST">
+                                                <button type="submit" class="btn btn-danger">
+                                                   <i class="bx bx-trash"></i>
+                                                </button>
+                                             </form>
+                                          </td>
+                                       </tr>
+                                    {{/each}}
+                                 </tbody>
+                                 </table>
+                              {{else}}
+                                 <div class="alert alert-danger">
+                                    Kategoriya mavjud emas
+                                 </div>
+                           {{/if}}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {{> dashboardFooter}}
+         </div>
+      </div>
+   </div>
+</div>

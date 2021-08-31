@@ -1,0 +1,86 @@
+<style>
+   .card-header, .card-body {
+      border: none !important;
+      border: 1px solid #e3e3e3 !important;
+   }
+   select {
+      border: none !important;
+      border: 2px solid #e3e3e3 !important;
+      background: transparent !important;
+      border-radius: 5px !important;
+   }
+</style>
+<div class="container-scroller">
+   {{> dashboardNavbar}}
+
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+
+      <div class="main-panel">
+         <div class="container">
+            <div class="card p-3 m-3">
+               <div class="card-header bg-white">
+                  <h3 class="text-center">Mahsulotni tahrirlash</h3>
+               </div>
+               {{#if product}}
+               <div class="card-body mt-3">
+                  <form action="/admin/update/{{product._id}}" method="POST" enctype="multipart/form-data">
+                     <div class="col-12">
+                        <label for="title" class="form-label">Mahsulot nomi</label>
+                        <div class="input-group">
+                           <input type="text" class="form-control" id="title" name="title" required value="{{product.title}}">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="description" class="form-label mt-3">Mahsulot haqida qisqacha ma`lumot</label>
+                        <div class="input-group">
+                           <textarea type="text" class="form-control" id="description" name="description" rows="15" required>{{product.description}}</textarea>
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="amount_small_size" class="form-label mt-3">Kichik o`lcham narxi</label>
+                        <div class="input-group">
+                           <input type="number" class="form-control" id="amount_small_size" name="amount_small_size" required value="{{product.amount_small_size}}">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="amount_medium_size" class="form-label mt-3">O`rtacha o`lcham narxi</label>
+                        <div class="input-group">
+                           <input type="number" class="form-control" id="amount_medium_size" name="amount_medium_size" required value="{{product.amount_medium_size}}">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="amount_big_size" class="form-label mt-3">Katta o`lcham narxi</label>
+                        <div class="input-group">
+                           <input type="number" class="form-control" id="amount_big_size" name="amount_big_size" required value="{{product.amount_big_size}}">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="amount_with_lamp" class="form-label mt-3">Lampa narxi</label>
+                        <div class="input-group">
+                           <input type="number" class="form-control" id="amount_with_lamp" name="amount_with_lamp" required value="{{product.amount_with_lamp}}">
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <label for="amount" class="form-label mt-3">Kategoriya</label>
+                        <div class="form-select">
+                           <select class="w-100 p-2" name="category" value={{product.category}}>
+                              <option value="tuy">To'y uchun</option>
+                              <option value="sovga">Sovg'a</option>
+                              <option value="suviner">Suviner</option>
+                           </select>
+                        </div>
+                     </div>
+                     <button class="btn btn-warning mt-3 ml-3 text-white" type="submit">
+                        <i class="bx bx-pencil"></i>
+                        Tahrirlash
+                     </button>
+                  </form>
+               </div>
+               {{/if}}
+            </div>
+            {{> dashboardFooter}}
+         </div>
+      </div>
+   </div>
+</div>

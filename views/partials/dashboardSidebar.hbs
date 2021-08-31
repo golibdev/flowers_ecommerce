@@ -1,0 +1,58 @@
+<style>
+   .icon {
+      font-size: 25px;
+   }
+</style>
+
+<nav class="sidebar sidebar-offcanvas shadow" id="sidebar">
+   <ul class="nav">
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/dashboard">
+            <i class="bx bx-grid-alt icon"></i>
+            <span class="menu-title ml-3">Bosh sahifa</span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/orders">
+            <i class="bx bx-cart icon"></i>
+            <span class="menu-title ml-3">Buyurtmalar</span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/comments">
+            <i class="bx bx-comment icon"></i>
+            <span class="menu-title ml-3">
+               {{#if countNewComment}}
+                  Izohlar ({{countNewComment}}) ta
+               {{else}}
+                  Izohlar (0 ta)
+               {{/if}}
+            </span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/add">
+            <i class="bx bx-plus icon"></i>
+            <span class="menu-title ml-3">Maxsulot qo'shish</span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/products">
+            <i class="bx bx-table icon"></i>
+            <span class="menu-title ml-3">Mahsulotlar</span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/admin/category">
+            <i class="bx bx-category icon"></i>
+            <span class="menu-title ml-3">Kategoriya</span>
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/auth/logout">
+            <i class="bx bx-log-out icon"></i>
+            <span class="menu-title ml-3">Chiqish</span>
+         </a>
+      </li>
+   </ul>
+</nav>

@@ -1,0 +1,43 @@
+<style>
+   .card-header, .card-body {
+      border: none !important;
+      border: 1px solid #e3e3e3 !important;
+   }
+   select {
+      border: none !important;
+      border: 2px solid #e3e3e3 !important;
+      background: transparent !important;
+      border-radius: 5px !important;
+   }
+</style>
+<div class="container-scroller">
+    {{> dashboardNavbar}}
+
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+      <div class="main-panel">
+         <div class="container">
+            <div class="card p-3 m-3">
+               <div class="card-header bg-white">
+                  <h3 class="text-center">Kategoriya tahrirlash</h3>
+               </div>
+               <div class="card-body mt-3">
+                  <form action="/admin/edit?category={{editedCategory.categorySlugUrl}}" method="POST">
+                     <div class="col-12">
+                        <label for="categoryTitle" class="form-label">Kategoriya nomi</label>
+                        <div class="input-group">
+                           <input type="text" class="form-control" id="categoryTitle" name="categoryTitle" required value="{{editedCategory.categoryTitle}}">
+                        </div>
+                     </div>
+                     <button class="btn btn-warning mt-3 ml-3 text-white" type="submit">
+                        Tahrirlash
+                        <i class="bx bx-pencil text-white"></i>
+                     </button>
+                  </form>
+               </div>
+            </div>
+            {{> dashboardFooter}}
+         </div>
+      </div>
+   </div>
+</div>

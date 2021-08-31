@@ -1,0 +1,143 @@
+<style>
+   .icon {
+      font-size: 20px;
+   }
+   .icons {
+      font-size: 30px;
+   }
+</style>
+<div class="container-scroller">
+   {{> dashboardNavbar}}
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+      <div class="main-panel">
+         <div class="content-wrapper">
+            <div class="row">
+               <div class="col-md-6 mb-4 stretch-card transparent font-weight-bold">
+                  <div class="card card-tale">
+                     <div class="card-body">
+                        <p class="mb-4 text-uppercase">Bugungi buyurtmalar: 
+                           <span>{{fullDate}}</span>
+                        </p>
+                        <p class="fs-30 mb-2">{{countToday}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 mb-4 stretch-card transparent font-weight-bold text-uppercase">
+                  <div class="card card-dark-blue">
+                     <div class="card-body">
+                        <p class="mb-4">Umumiy buyurtmalar</p>
+                        <p class="fs-30 mb-2">{{count}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent font-weight-bold text-uppercase">
+                  <div class="card card-light-blue">
+                     <div class="card-body">
+                        <p class="mb-4">Yetkazib berilgan buyurtmalar</p>
+                        <p class="fs-30 mb-2">{{countSuccess}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 stretch-card transparent font-weight-bold text-uppercase">
+                  <div class="card card-light-danger">
+                     <div class="card-body">
+                        <p class="mb-4">Bekor qilingan buyurtmalar</p>
+                        <p class="fs-30 mb-2">{{countCancelled}}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row mt-5">
+               <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                     <div class="card-body">
+                        <p class="card-title">Bugungi buyurtmalar</p>
+                        <div class="row">
+                           <div class="col-12">
+                              {{#if todayOrders}}
+                                 <div class="table-responsive">
+                                    <table id="example" class="display expandable-table table-hover text-center" style="width:100%">
+                                       <thead>
+                                          <tr>
+                                             <th>№</th>
+                                             <th>F.I.SH.</th>
+                                             <th>Viloyat</th>
+                                             <th>Telefon raqam</th>
+                                             <th>Mahsulot nomi</th>
+                                             <th>Turi</th>
+                                             <th>Lampa</th>
+                                             <th>Jami summa</th>
+                                             <th>Bekor qilish</th>
+                                             <th>Muvaffaqqiyatli</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          {{#each todayOrders}}
+                                             <tr>
+                                                <td class="index">{{@index}}</td>
+                                                <td>{{fullName}}</td>
+                                                <td>{{region}}</td>
+                                                <td>{{phone}}</td>
+                                                <td>{{productName}}</td>
+                                                <td>{{typeFlowers}}</td>
+                                                {{#if withLamp}}
+                                                   <td>Bor</td>
+                                                {{else}}
+                                                   <td>Yo'q</td>
+                                                {{/if}}
+                                                <td>{{totalPrice}} so'm</td>
+                                                <td>
+                                                   {{#ifEquals status 'new'}}
+                                                   <form action="/order/cancel/{{_id}}" method="POST">
+                                                      <button type="submit" class="btn btn-danger">Bekor qilish</button>
+                                                   </form>
+                                                   {{else}}
+                                                   <form action="/order/cancel/{{_id}}" method="POST">
+                                                      <button type="submit" disabled class="btn btn-danger">Bekor qilish</button>
+                                                   </form>
+                                                   {{/ifEquals}}
+                                                </td>
+                                                <td>
+                                                   {{#ifEquals status 'new'}}
+                                                   <form action="/order/success/{{_id}}" method="POST">
+                                                      <button type="submit" class="btn btn-success">Success</button>
+                                                   </form>
+                                                   {{else}}
+                                                   <form action="/order/success/{{_id}}" method="POST">
+                                                      <button disabled type="submit" class="btn btn-success">Success</button>
+                                                   </form>
+                                                   {{/ifEquals}}
+                                                </td>
+                                             </tr>
+                                          {{/each}}
+                                          
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 {{else}}
+                                 <div class="alert alert-danger">
+                                    Bugun buyurtmalar mavjud emas
+                                 </div>
+                              {{/if}}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{> dashboardFooter}}
+      </div>
+   </div>
+</div>
+
+<script>
+   let el = document.querySelectorAll('.index')
+
+   el.forEach(e => {
+      let i = Number(e.innerHTML)
+
+      e.innerHTML = ++i
+   })
+</script>

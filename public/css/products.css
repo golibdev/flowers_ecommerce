@@ -1,0 +1,93 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.37rem;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.border-right {
+    border-right: 1px solid #e4e4e4 !important;
+}
+
+.gallery-wrap .img-big-wrap {
+    margin-bottom: 10px;
+    border-radius: 0.37rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.gallery-wrap .img-big-wrap img {
+    height: 450px;
+    width: auto;
+    display: inline-block;
+    cursor: zoom-in;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.gallery-wrap .img-big-wrap a {
+    text-align: center;
+    display: block;
+}
+
+.content-body {
+    flex: 1 1 auto;
+    padding: 2rem 2.3rem;
+}
+
+.list-normal {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-normal li {
+    padding-left: 1em;
+    margin-bottom: 7px;
+}
+
+.cols-two {
+    column-count: 2;
+}
+
+.price {
+    font-weight: 600;
+    color: #212529;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row > .col,
+.form-row > [class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.9rem + 2px);
+    padding: 0.45rem 0.85rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.37rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+

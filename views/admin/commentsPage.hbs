@@ -1,0 +1,62 @@
+<style>
+   .icon {
+      font-size: 20px;
+   }
+   .icons {
+      font-size: 30px;
+   }
+</style>
+<div class="container-scroller">
+   {{> dashboardNavbar}}
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+      <div class="main-panel">
+         <div class="content-wrapper">
+            <div class="row">
+               <div class="col-md-12 grid-margin scetch-card">
+                  <div class="card">
+                     <div class="card-body">
+                        <p class="card-title">Izohlar</p>
+                        <div class="row">
+                           <div class="col-12">
+                              <div class="table-responsive">
+                                 {{#if comments}}
+                                    <table id="example" class="display expandable-table table-hover text-center" style="width:100%">
+                                       <thead>
+                                          <tr>
+                                             <th>Email</th>
+                                             <th>Izoh</th>
+                                             <th>O`chirish</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          {{#each comments}}
+                                             <tr>
+                                                <td>{{email}}</td>
+                                                <td>{{description}}</td>
+                                                <td>
+                                                   <form action="/comment/delete/{{_id}}" method="POST">
+                                                      <button class="btn btn-danger">
+                                                         <i class="bx bx-trash"></i>
+                                                      </button>
+                                                   </form>
+                                                </td>
+                                             </tr>
+                                          {{/each}}
+                                       </tbody>
+                                    </table>
+                                    {{else}}
+                                    <div>Izohlar mavjud emas</div>
+                                 {{/if}}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{> dashboardFooter}}
+      </div>
+   </div>
+</div>

@@ -1,0 +1,62 @@
+<style>
+   .login {
+      margin-top: 6rem;
+   }
+   .views {
+      position: relative;
+   }
+   .icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+   }
+</style>
+
+{{> navbar}}
+<div class="container login mb-3">
+   <div class="row">
+      <div class="col-12">
+         <div class="card p-3">
+            {{#if logErr}}
+               <div class="alert alert-danger" role="alert">
+                  {{logErr}}
+               </div>
+            {{/if}}
+            <div class="card-header text-center bg-white">
+               <h1>Kirish</h1>
+            </div>
+            <div class="card-body">
+               <form action="/auth/login" method="POST">
+                     <div class="form-group">
+                     <label for="email">Elektron pochta</label>
+                     <input type="email" class="form-control" id="email" name="email"  placeholder="Elektron pochta...">
+                  </div>
+                  <div class="form-group">
+                     <label for="password">Parol kiriting</label>
+                     <div class="d-flex justify-content-between views">
+                        <input type="password" class="form-control" id="password" placeholder="Parolni kiriting..." minlength="6" name="password">
+                        <box-icon name='show' class="icon"></box-icon>
+                     </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Kirish</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script>
+   const icon = document.querySelector('.icon')
+   const password = document.getElementById('password')
+   let state = false
+   icon.addEventListener('click', () => {
+      if(state) {
+         password.setAttribute("type", "password") 
+         state = false
+      } else {
+         password.setAttribute("type", "text") 
+         state = true
+      }
+   })
+</script>

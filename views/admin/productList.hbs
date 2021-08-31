@@ -1,0 +1,82 @@
+<div class="container-scroller">
+   {{> dashboardNavbar}}
+
+   <div class="container-fluid page-body-wrapper">
+      {{> dashboardSidebar}}
+
+      <div class="main-panel">
+         <div class="content-wrapper">
+            <div class="row mt-3">
+               <div class="col-md-12 grid-margin strech-card">
+                  <div class="card">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col-12">
+                              <form action="/admin/products" method="GET">
+                                 <div class="form-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Qidiruv">
+                                 </div>
+                                 <button type="submit" class="btn btn-primary">Qidirish</button>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                     <div class="card-body">
+                        <p class="card-title">Mahsulotlar</p>
+                        <div class="row">
+                           <div class="col-12">
+                              <div class="table-responsive">
+                                 <table id="example" class="display expandable-table table-hover text-center" style="width:100%">
+                                    <thead>
+                                       <tr>
+                                          <th>Rasmi</th>
+                                          <th>Nomi</th>
+                                          <th>Kichik o'lcham narxi</th>
+                                          <th>O`rtacha o'lcham narxi</th>
+                                          <th>Katta o'lcham narxi</th>
+                                          <th>Lampa narxi</th>
+                                          <th>Kategoriya</th>
+                                          <th>Tahrirlash</th>
+                                          <th>O'chirish</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       {{#each products}}
+                                          <tr>
+                                             <td><img src="{{image}}" alt="" class="img-fluid rounded"></td>
+                                             <td>{{title}}</td>
+                                             <td>{{amount_small_size}} so`m</td>
+                                             <td>{{amount_medium_size}} so`m</td>
+                                             <td>{{amount_big_size}} so`m</td>
+                                             <td>{{amount_with_lamp}} so`m</td>
+                                             <td>{{category}}</td>
+                                             <td><a href="/admin/update/{{_id}}" class="btn btn-warning text-white">
+                                                <i class="bx bx-pencil"></i></a></td>
+                                             <td>
+                                                <form action="/admin/delete/{{_id}}" method="post">
+                                                   <button type="submit" class="btn btn-danger">
+                                                      <i class="bx bx-trash"></i>
+                                                   </button>
+                                                </form>
+                                             </td>
+                                          </tr>
+                                       {{/each}}
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{> dashboardFooter}}
+      </div>
+   </div>
+</div>

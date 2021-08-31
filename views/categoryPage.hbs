@@ -1,0 +1,79 @@
+{{> navbar}}
+<style>
+   .card-body, .card-footer, .card-header {
+      border: none !important;
+      border: 1px solid #e84393 !important;
+      border-radius: 10px !important;
+      margin-bottom: 15px;
+   }
+   .btn-outline-danger {
+      font-weight: 600 !important;
+      border: 1px solid #e84393;
+   }
+   .title {
+      font-size: 20px !important;
+   }
+
+   .disabled {
+      cursor: pointer;
+      pointer-events: none;
+   }
+   .page-item {
+      cursor: pointer;
+   }
+
+   @media (max-width: 400px) {
+      .title {
+         font-size: 1rem !important;
+      }
+   }
+</style>
+
+{{> navbar}}
+
+<section class="products" id="products" style="margin-top: 4rem;">
+   {{#if products}}
+   <div class="container w-100 alert alert-danger text-dark d-flex justify-content-center align-items-center text-uppercase ">
+      <h1 class="title">Barcha</h1>
+      <h1 class="ml-2 title" style="color: #e84393;">mahsulotlar</h1>
+   </div>
+   <div class="row">
+         {{#each products}}
+               <div class="col-lg-4 col-md-6 col-12 mb-3">
+                  <div class="card p-3">
+                      <div class="card-header text-danger bg-white text-center">
+                            {{title}}
+                        </div>
+                     <div class="card-body">
+                        <img src="{{image}}"style="height: 300px;"  class="img-fluid rounded w-100" alt="">
+                     </div>
+                     <div class="card-footer bg-white d-flex justify-content-between">
+                           <a class="btn btn-outline-danger" href="/product/{{_id}}">To'liq</a>
+                     </div>
+                  </div>
+               </div>
+         {{/each}}
+   </div>
+   <nav>
+      <ul class="pagination justify-content-center">
+         {{#paginate pagination type="previous"}}
+            <li {{#if disabled}}class="page-item disabled"{{/if}}><a href="?page={{n}}&limit=9" class="page-link">Prev</a></li>
+         {{/paginate}}
+         {{#paginate pagination type="middle"}}
+            <li {{#if active}}class="page-item active"{{/if}}>
+               <a href="?page={{n}}&limit=9" class="page-link  ">{{n}}</a>
+            </li>
+         {{/paginate}}
+         {{#paginate pagination type="next"}}
+            <li {{#if disabled}}class="page-item disabled"{{/if}}>
+               <a href="?page={{n}}&limit=9" class="page-link">Next</a>
+            </li>
+         {{/paginate}}
+      </ul>
+   </nav>
+   {{else}}
+      <div class="alert alert-danger">
+         Maxsulotlar qo'shilmagan
+      </div>
+{{/if}}
+</section>

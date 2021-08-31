@@ -1,0 +1,224 @@
+<style>
+   select {
+      border: 1px solid #ced4da;
+      background: transparent !important;
+      border-radius: 5px;
+      padding: 11px !important;
+   }
+   .card {
+      border: 1px solid #ced4da;
+   }
+   .icons {
+      position: relative;
+      margin-right: 2.5rem;
+   }
+   .bx-user {
+      font-size: 48px;
+      position: absolute;
+      border: 1px solid;
+   }
+
+   @media (max-width: 466px) {
+      .bx-user {
+         top: 10px !important;
+      }
+   }
+
+   @media (max-width: 340px) {
+      .btn-success {
+         padding: 10px 15px;
+      }
+   }
+</style>
+
+{{> navbar}}
+
+<div class="container mb-3" style="margin-top: 6rem;">
+   <div class="row">
+      <div class="col-12">
+         <div class="card">
+            <div class="row">
+               <div class="col-md-6 col-12">
+                  <div class="card-body">
+                     <img src="{{image}}" class="img-fluid w-100 rounded" style="height: 400px;" alt="">
+                  </div>
+               </div>
+               <div class="col-md-6 col-12">
+                  <div class="container">
+                     <div class="card-header bg-white">
+                        <h3 class="text-center font-weight-bold">{{title}}</h3>
+                     </div>
+                     <div class="card-body">
+                        <p>{{description}}</p>
+                        <p class="font-weight-bold mt-5">Kichik o`lcham narxi: 
+                           <span class="text-info">
+                              {{small}} so'm
+                           </span>
+                        </p>
+                        <p class="font-weight-bold mt-3">O'rta o`lcham narxi: 
+                           <span class="text-info">
+                              {{medium}} so'm
+                           </span>
+                        </p>
+                        <p class="font-weight-bold mt-3">Katta o`lcham narxi: 
+                           <span class="text-info">
+                              {{big}} so'm
+                           </span>
+                        </p>
+                        <p class="font-weight-bold mt-3">Lampa narxi: 
+                           <span class="text-info">
+                              {{lamp}} so'm
+                           </span>
+                        </p>
+                     </div>
+                     <div class="card-footer bg-white d-flex text-center">
+                        <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal">Buyurtma berish</button>
+                        <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModals">Izoh qoldirish</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="container mb-3">
+   <div class="row">
+      <div class="col-12">
+         <div class="card rounded p-3">
+            <div class="card-header bg-white">
+               <h3>Izohlar</h3>
+            </div>
+            {{#if comments}}
+               {{#each comments}}
+                  <div class="card-body d-flex">
+                     <div class="icons">
+                        <i class="bx bx-user"></i>
+                     </div>
+                     <div class="mx-3">
+                        <p><span class="font-weight-bold">Email:</span> {{email}}</p>
+                        <p><span class="font-weight-bold">Izoh:</span> {{description}}</p>
+                     </div>               
+                  </div>
+               {{/each}}
+               {{else}}
+                  <div class="card-body">
+                     Izohlar mavjud emas
+                  </div>
+            {{/if}}
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Buyurtma qilish</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="bx bx-x"></i>
+         </button>
+      </div>
+      <div class="modal-body">
+         <form action="/order/products/{{id}}" method="POST">
+           <div class="card p-3">
+               <div class="row">
+                  <div class="col-lg-6 col-md-12 mb-3">
+                     <label for="fullName" class="form-label">To`liq ismingiz</label>
+                     <div class="input-group has-validation">
+                           <input type="text" class="form-control" id="fullName" name="fullName" required>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-12 mb-2">
+                     <label for="region" class="form-label">Viloyat</label>
+                     <select name="region" id="region" class="form-select w-100 mb-3" aria-label="Default select example">
+                        <option value="ANDIJON" selected>ANDIJON</option>
+                        <option value="BUXORO">BUXORO</option>
+                        <option value="FARG`ONA">FARG`ONA</option>
+                        <option value="JIZZAX">JIZZAX</option>
+                        <option value="XORAZM">XORAZM</option>
+                        <option value="NAMANGAN">NAMANGAN</option>
+                        <option value="NAVOI">NAVOI</option>
+                        <option value="QASHQADARYO">QASHQADARYO</option>
+                        <option value="QORAQALPOG`ISTON">QORAQALPOGISTON</option>
+                        <option value="SAMARQAND">SAMARQAND</option>
+                        <option value="SIRDARYO">SIRDARYO</option>
+                        <option value="SURXONDARYO">SURXONDARYO</option>
+                        <option value="TOSHKENT VILOYATI">TOSHKENT VILOYATI</option>
+                        <option value="TOSHKENT">TOSHKENT SHAHRI</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-6 col-md-12 mb-4">
+                     <label for="phone" class="form-label">Telefon raqamingiz</label>
+                     <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-12 mb-4">
+                     <label for="typeFlowers" class="form-label">Turini tanlang</label>
+                     <select name="typeFlowers" id="typeFlowers" class="form-select w-100">
+                        <option value="amount_small_size" selected>Kichik o'lcham</option>
+                        <option value="amount_medium_size">O'rtacha o'lcham</option>
+                        <option value="amount_big_size">Katta o'lcham</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-6 col-md-12 mb-4">
+                     <label class="form-check-label" for="exampleCheck1">
+                        Lampa kerakmi
+                     </label>
+                     <input type="checkbox" class="form-check-input mx-3" id="exampleCheck1" name="withLamp">
+                  </div>
+               </div>
+               <div class="text-end">
+                  <button class="btn btn-success" type="submit"> 
+                     Buyurtma qilish 
+                  </button>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Izoh qoldirish</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="bx bx-x"></i>
+         </button>
+      </div>
+      <div class="modal-body">
+         <form action="/comment/{{id}}" method="POST">
+            <div class="mb-3">
+               <label for="email" class="form-label">Email</label>
+               <input type="email" class="form-control" name="email" id="email" placeholder="Email kiriting...">
+            </div>
+            <div class="mb-3">
+               <label for="description" class="form-label">Izoh</label>
+               <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Izoh qoldirish</button>
+         </form>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+         </button>
+      </div>
+    </div>
+  </div>
+</div>
