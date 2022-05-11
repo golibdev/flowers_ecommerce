@@ -39,9 +39,7 @@
          <div class="card">
             <div class="row">
                <div class="col-md-6 col-12">
-                  <div class="card-body">
-                     <img src="{{image}}" class="img-fluid w-100 rounded" style="height: 400px;" alt="">
-                  </div>
+                  <img src="{{image}}" class="img-fluid w-100" style="height: 400px;" alt="">
                </div>
                <div class="col-md-6 col-12">
                   <div class="container">
@@ -123,63 +121,61 @@
       </div>
       <div class="modal-body">
          <form action="/order/products/{{id}}" method="POST">
-           <div class="card p-3">
-               <div class="row">
-                  <div class="col-lg-6 col-md-12 mb-3">
-                     <label for="fullName" class="form-label">To`liq ismingiz</label>
-                     <div class="input-group has-validation">
-                           <input type="text" class="form-control" id="fullName" name="fullName" required>
-                     </div>
-                  </div>
-                  <div class="col-lg-6 col-12 mb-2">
-                     <label for="region" class="form-label">Viloyat</label>
-                     <select name="region" id="region" class="form-select w-100 mb-3" aria-label="Default select example">
-                        <option value="ANDIJON" selected>ANDIJON</option>
-                        <option value="BUXORO">BUXORO</option>
-                        <option value="FARG`ONA">FARG`ONA</option>
-                        <option value="JIZZAX">JIZZAX</option>
-                        <option value="XORAZM">XORAZM</option>
-                        <option value="NAMANGAN">NAMANGAN</option>
-                        <option value="NAVOI">NAVOI</option>
-                        <option value="QASHQADARYO">QASHQADARYO</option>
-                        <option value="QORAQALPOG`ISTON">QORAQALPOGISTON</option>
-                        <option value="SAMARQAND">SAMARQAND</option>
-                        <option value="SIRDARYO">SIRDARYO</option>
-                        <option value="SURXONDARYO">SURXONDARYO</option>
-                        <option value="TOSHKENT VILOYATI">TOSHKENT VILOYATI</option>
-                        <option value="TOSHKENT">TOSHKENT SHAHRI</option>
-                     </select>
+            <div class="row">
+               <div class="col-lg-6 col-md-12 mb-3">
+                  <label for="fullName" class="form-label">To`liq ismingiz</label>
+                  <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="fullName" name="fullName" required>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-lg-6 col-md-12 mb-4">
-                     <label for="phone" class="form-label">Telefon raqamingiz</label>
-                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                     </div>
-                  </div>
-                  <div class="col-lg-6 col-12 mb-4">
-                     <label for="typeFlowers" class="form-label">Turini tanlang</label>
-                     <select name="typeFlowers" id="typeFlowers" class="form-select w-100">
-                        <option value="amount_small_size" selected>Kichik o'lcham</option>
-                        <option value="amount_medium_size">O'rtacha o'lcham</option>
-                        <option value="amount_big_size">Katta o'lcham</option>
-                     </select>
+               <div class="col-lg-6 col-12 mb-2">
+                  <label for="region" class="form-label">Viloyat</label>
+                  <select name="region" id="region" class="form-select w-100 mb-3" aria-label="Default select example">
+                     <option value="ANDIJON" selected>ANDIJON</option>
+                     <option value="BUXORO">BUXORO</option>
+                     <option value="FARG`ONA">FARG`ONA</option>
+                     <option value="JIZZAX">JIZZAX</option>
+                     <option value="XORAZM">XORAZM</option>
+                     <option value="NAMANGAN">NAMANGAN</option>
+                     <option value="NAVOI">NAVOI</option>
+                     <option value="QASHQADARYO">QASHQADARYO</option>
+                     <option value="QORAQALPOG`ISTON">QORAQALPOGISTON</option>
+                     <option value="SAMARQAND">SAMARQAND</option>
+                     <option value="SIRDARYO">SIRDARYO</option>
+                     <option value="SURXONDARYO">SURXONDARYO</option>
+                     <option value="TOSHKENT VILOYATI">TOSHKENT VILOYATI</option>
+                     <option value="TOSHKENT">TOSHKENT SHAHRI</option>
+                  </select>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-6 col-md-12 mb-4">
+                  <label for="phone" class="form-label">Telefon raqamingiz</label>
+                  <div class="input-group has-validation">
+                     <input type="text" class="form-control" id="phone" name="phone" required>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-lg-6 col-md-12 mb-4">
-                     <label class="form-check-label" for="exampleCheck1">
-                        Lampa kerakmi
-                     </label>
-                     <input type="checkbox" class="form-check-input mx-3" id="exampleCheck1" name="withLamp">
-                  </div>
+               <div class="col-lg-6 col-12 mb-4">
+                  <label for="typeFlowers" class="form-label">Turini tanlang</label>
+                  <select name="typeFlowers" id="typeFlowers" class="form-select w-100">
+                     <option value="amount_small_size" selected>Kichik o'lcham</option>
+                     <option value="amount_medium_size">O'rtacha o'lcham</option>
+                     <option value="amount_big_size">Katta o'lcham</option>
+                  </select>
                </div>
-               <div class="text-end">
-                  <button class="btn btn-success" type="submit"> 
-                     Buyurtma qilish 
-                  </button>
+            </div>
+            <div class="row">
+               <div class="col-lg-6 col-md-12 mb-4">
+                  <label class="form-check-label" for="exampleCheck1">
+                     Lampa kerakmi
+                  </label>
+                  <input type="checkbox" class="form-check-input mx-3" id="exampleCheck1" name="withLamp">
                </div>
+            </div>
+            <div class="text-end">
+               <button class="btn btn-success" type="submit"> 
+                  Buyurtma qilish 
+               </button>
             </div>
          </form>
       </div>

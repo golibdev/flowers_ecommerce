@@ -1,15 +1,5 @@
 {{> navbar}}
 <style>
-   .card-body, .card-footer, .card-header {
-      border: none !important;
-      border: 1px solid #e84393 !important;
-      border-radius: 10px !important;
-      margin-bottom: 15px;
-   }
-   .btn-outline-danger {
-      font-weight: 600 !important;
-      border: 1px solid #e84393;
-   }
    .title {
       font-size: 20px !important;
    }
@@ -33,22 +23,22 @@
 
 <section class="products" id="products" style="margin-top: 4rem;">
    {{#if products}}
-   <div class="container w-100 alert alert-danger text-dark d-flex justify-content-center align-items-center text-uppercase ">
+   <div class="w-100 text-dark d-flex justify-content-center align-items-center text-uppercase ">
       <h1 class="title">Barcha</h1>
       <h1 class="ml-2 title" style="color: #e84393;">mahsulotlar</h1>
    </div>
    <div class="row">
          {{#each products}}
-               <div class="col-lg-4 col-md-6 col-12 mb-3">
-                  <div class="card p-3">
+               <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                  <div class="card">
                       <div class="card-header text-danger bg-white text-center">
                             {{title}}
                         </div>
                      <div class="card-body">
-                        <img src="{{image}}"style="height: 300px;"  class="img-fluid rounded w-100" alt="">
+                        <img src="{{image}}"style="height: 220px;"  class="img-fluid rounded w-100" alt="">
                      </div>
-                     <div class="card-footer bg-white d-flex justify-content-between">
-                           <a class="btn btn-outline-danger" href="/product/{{_id}}">To'liq</a>
+                     <div class="card-footer bg-white">
+                        <a class="btn btn-outline-danger d-block" href="/product/{{_id}}">To'liq</a>
                      </div>
                   </div>
                </div>
